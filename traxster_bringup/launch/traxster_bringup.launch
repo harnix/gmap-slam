@@ -1,0 +1,35 @@
+<launch>
+
+  	<!-- Load the URDF/Xacro model of our robot -->
+  	<arg name="urdf_file" default="$(find xacro)/xacro.py '$(find traxster_description)/urdf/traxster.urdf'" />
+  	<param name="robot_description" command="$(arg urdf_file)" />
+  	
+
+  	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
+  	</node>
+    
+    <!-- Node for uncompressing images coming from raspberry pi kinect -->
+    <!--<node pkg="traxster_bringup" type="uncompress_img_sub.py" name="uncompress_image_sub" output="screen">
+    </node>
+     -->
+
+    <!-- Viewing images from ORBSLAM node -->
+    <node pkg="image_view" type="image_view" name="image_view" respawn="false" output="log">
+        <remap from="image" to="/ORB_SLAM/Frame" />
+        <param name="autosize" value="true"/>
+    </node>
+
+    <!-- tf publisher for the kinect to base of the robot -->
+    <node pkg="tf" type="static_transform_publisher"  name="base_to_kinect_broadcaster" args="0.105 0 0.043 0 0 0 base_link  camera_link 100" />
+
+    <!-- Node listening to the encoder data and publishing Odometry message -->
+    <node name="OdometryPublisher" pkg="traxster_bringup" type="pub_odom.py" />
+
+    <!-- Rviz for visualiztion of the robot and sensor data -->
+  	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find ORB_SLAM)/Data/rviz.rviz" output="log"/>
+
+    <!-- Node running the ORB_SLAM algorithm for feature extraction and map  building -->
+    <node pkg="ORB_SLAM" type="ORB_SLAM" name="ORB_SLAM"  args="Data/ORBvoc.txt Data/Settings.yaml" cwd="node" output="screen">
+    </node>
+
+</launch>

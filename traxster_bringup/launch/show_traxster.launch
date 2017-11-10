@@ -1,0 +1,14 @@
+<launch>   
+
+    <!-- Load the URDF/Xacro model of our robot -->
+    <arg name="urdf_file" default="$(find xacro)/xacro.py '$(find traxster_description)/urdf/traxster.urdf'" />
+    <param name="robot_description" command="$(arg urdf_file)" />
+    
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
+    </node>
+    
+    <!-- Rviz for visualiztion of the robot and sensor data -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ORB_SLAM)/Data/rviz.rviz" output="log"/>
+    
+</launch>
