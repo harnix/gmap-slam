@@ -17,7 +17,11 @@
 	  <visual>
 		<origin rpy="0 0 0" xyz="0 0 0"/>
 		<geometry>
+<<<<<<< HEAD
 		  <box size="0.1 0.1 0.1"/>
+=======
+		  <box size="0.001 0.001 0.001"/>
+>>>>>>> 1b7c90c1682eada150db18a82c7fd4e120106e32
 		</geometry>
 	  </visual>
 	</link>

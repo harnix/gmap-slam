@@ -14,13 +14,21 @@
             <geometry>
                 <box size="0.22606 0.11360 0.047731"/>
             </geometry>
+<<<<<<< HEAD
             <origin xyz="0 0 0" />
+=======
+            <origin xyz="0 0 0"/>
+>>>>>>> 1b7c90c1682eada150db18a82c7fd4e120106e32
             <material name="blue"/>
         </visual>
     </link>
 
     <link name="right_track_1">
+<<<<<<< HEAD
         <visual>
+=======
+        <visual>a
+>>>>>>> 1b7c90c1682eada150db18a82c7fd4e120106e32
             <geometry>
                 <box size="0.016346  0.0032815 0.1918488"/>
             </geometry>
@@ -30,7 +38,11 @@
    </link>
 
    <link name="right_track_2">
+<<<<<<< HEAD
         <visual>
+=======
+        <visual>a
+>>>>>>> 1b7c90c1682eada150db18a82c7fd4e120106e32
             <geometry>
                 <box size="0.016346  0.0032815 0.1918488"/>
             </geometry>
@@ -150,6 +162,7 @@
   </joint>
 
 
+<<<<<<< HEAD
   <joint name="base_camera_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0.105 0 0.043"/>
     <parent link="base_link"/>
@@ -157,6 +170,15 @@
   </joint>
 
   <link name="camera_link">
+=======
+  <joint name="base_kinect_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.105 0 0.043"/>
+    <parent link="base_link"/>
+    <child link="kinect_link"/>
+  </joint>
+
+  <link name="kinect_link">
+>>>>>>> 1b7c90c1682eada150db18a82c7fd4e120106e32
     <inertial>
       <mass value="0.00001"/>
       <origin xyz="0 0 0"/>
@@ -175,6 +197,7 @@
       </geometry>
     </collision>
   </link>
+<<<<<<< HEAD
   <joint name="camera_depth_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0.018 0"/>
     <parent link="camera_link"/>
@@ -205,18 +228,59 @@
     <child link="camera_rgb_frame"/>
   </joint>
   <link name="camera_rgb_frame">
+=======
+  <joint name="kinect_depth_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0.018 0"/>
+    <parent link="kinect_link"/>
+    <child link="kinect_depth_frame"/>
+  </joint>
+  <link name="kinect_depth_frame">
     <inertial>
       <mass value="0.000001"/>
       <origin xyz="0 0 0"/>
       <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
     </inertial>
   </link>
+  <joint name="kinect_depth_optical_joint" type="fixed">
+    <origin rpy="-1.570795 0 -1.570795" xyz="0 0 0"/>
+    <parent link="kinect_depth_frame"/>
+    <child link="kinect_depth_optical_frame"/>
+  </joint>
+  <link name="kinect_depth_optical_frame">
+    <inertial>
+      <mass value="0.000001"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+    </inertial>
+  </link>
+  <joint name="kinect_rgb_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 -0.005 0"/>
+    <parent link="kinect_link"/>
+    <child link="kinect_rgb_frame"/>
+  </joint>
+  <link name="kinect_rgb_frame">
+>>>>>>> 1b7c90c1682eada150db18a82c7fd4e120106e32
+    <inertial>
+      <mass value="0.000001"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+    </inertial>
+  </link>
+<<<<<<< HEAD
   <joint name="camera_rgb_optical_joint" type="fixed">
     <origin rpy="-1.570795 0 -1.570795" xyz="0 0 0"/>
     <parent link="camera_rgb_frame"/>
     <child link="camera_rgb_optical_frame"/>
   </joint>
   <link name="camera_rgb_optical_frame">
+=======
+  <joint name="kinect_rgb_optical_joint" type="fixed">
+    <origin rpy="-1.570795 0 -1.570795" xyz="0 0 0"/>
+    <parent link="kinect_rgb_frame"/>
+    <child link="kinect_rgb_optical_frame"/>
+  </joint>
+  <link name="kinect_rgb_optical_frame">
+>>>>>>> 1b7c90c1682eada150db18a82c7fd4e120106e32
     <inertial>
       <mass value="0.000001"/>
       <origin xyz="0 0 0"/>
@@ -264,12 +328,20 @@
     </inertial>
   </link>
   <joint name="left_eye_joint" type="fixed">
+<<<<<<< HEAD
     <parent link="camera_link"/>
+=======
+    <parent link="kinect_link"/>
+>>>>>>> 1b7c90c1682eada150db18a82c7fd4e120106e32
     <child link="left_eye_link"/>
     <origin rpy="0 0 0" xyz="-0.005 0.035 0"/>
   </joint>
   <joint name="right_eye_joint" type="fixed">
+<<<<<<< HEAD
     <parent link="camera_link"/>
+=======
+    <parent link="kinect_link"/>
+>>>>>>> 1b7c90c1682eada150db18a82c7fd4e120106e32
     <child link="right_eye_link"/>
     <origin rpy="0 0 0" xyz="-0.005 -0.035 0"/>
   </joint>

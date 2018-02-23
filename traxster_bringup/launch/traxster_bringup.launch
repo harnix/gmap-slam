@@ -24,6 +24,7 @@
 
     <!-- Node listening to the encoder data and publishing Odometry message -->
     <node name="OdometryPublisher" pkg="traxster_bringup" type="pub_odom.py" />
+<<<<<<< HEAD
     <node name="rviz" pkg="rviz" type="rviz" />
     <!-- Rviz for visualiztion of the robot and sensor data -->
     <!--
@@ -34,5 +35,14 @@
     <node pkg="ORB_SLAM" type="ORB_SLAM" name="ORB_SLAM"  args="Data/ORBvoc.txt Data/Settings.yaml" cwd="node" output="screen">
     </node>
     -->
+=======
+
+    <!-- Rviz for visualiztion of the robot and sensor data -->
+  	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find ORB_SLAM)/Data/rviz.rviz" output="log"/>
+
+    <!-- Node running the ORB_SLAM algorithm for feature extraction and map  building -->
+    <node pkg="ORB_SLAM" type="ORB_SLAM" name="ORB_SLAM"  args="Data/ORBvoc.txt Data/Settings.yaml" cwd="node" output="screen">
+    </node>
+>>>>>>> 1b7c90c1682eada150db18a82c7fd4e120106e32
 
 </launch>

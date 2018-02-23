@@ -16,6 +16,7 @@
       <param name="publish_frequency" type="double" value="20.0" />
   </node>
 
+<<<<<<< HEAD
   <!-- Run the depthimage to LaserScan -->
   <node name="depthimage_to_laserscan" pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" > 
       <remap from="image" to="/camera/depth/image_raw"/>
@@ -23,6 +24,8 @@
 
   <!-- Node listening to the scan data and invrting it -->
   <node name="Inverted_Scanner" pkg="traxster_bringup" type="invert_scan.py" />
+=======
+>>>>>>> 1b7c90c1682eada150db18a82c7fd4e120106e32
 
   <node name="rviz" pkg="rviz" type="rviz" />
   
