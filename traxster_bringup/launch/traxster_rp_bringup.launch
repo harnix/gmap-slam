@@ -1,0 +1,41 @@
+<launch>   
+  	  	
+  	<!--serial communication between arduino and pc via usb /-->
+    <node name="rosserial_traxster" pkg="rosserial_python" type="serial_node.py" output="screen">
+        <param name="port" value="/dev/ttyACM0" />
+        <param name="baud" value="57600" />
+    </node>
+
+	<!-- Bring up Kinect -->
+    <include file="$(find freenect_launch)/launch/freenect.launch">  
+    </include>
+    
+    <!-- Run the depthimage to LaserScan -->
+    <node name="depthimage_to_laserscan" pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" > 
+        <remap from="image" to="/camera/depth/image_raw"/>
+    </node>
+
+    <!-- Load the URDF/Xacro model of our robot -->
+    <arg name="urdf_file" default="$(find xacro)/xacro.py '$(find traxster_description)/urdf/traxster.urdf'" />
+    <param name="robot_description" command="$(arg urdf_file)" />
+    
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
+    </node>
+
+    <!-- tf publisher for the kinect to base of the robot -->
+    <node pkg="tf" type="static_transform_publisher"  name="base_to_kinect_broadcaster" args="0.105 0 0.043 0 0 0 base_link  camera_link 100" />
+
+    <!-- Node listening to the encoder data and publishing Odometry message -->
+    <node name="OdometryPublisher" pkg="traxster_bringup" type="pub_odom.py" />
+
+    <!-- Node running the ORB_SLAM algorithm for feature extraction and map  building -->
+    <!--<node pkg="ORB_SLAM" type="ORB_SLAM" name="ORB_SLAM"  args="Data/ORBvoc.txt Data/Settings.yaml" cwd="node" output="screen">
+        <remap from="/camera/image_raw" to="/camera/rgb/image_raw/" />
+    </node>
+    -->
+
+    <!-- Rviz for visualiztion of the robot and sensor data -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ORB_SLAM)/Data/rviz.rviz" output="log"/>
+    
+</launch>

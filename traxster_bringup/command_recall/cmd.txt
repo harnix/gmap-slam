@@ -1,0 +1,16 @@
+###########Cinfigure Network###########
+export ROS_HOSTNAME=192.168.43.175;export ROS_MASTER_URI=http://192.168.43.175:11311;
+
+export ROS_HOSTNAME=10.42.0.1;export ROS_MASTER_URI=http://10.42.0.1:11311;
+
+###########image viewing#############
+rosrun image_view image_view image:=/camera/rgb/image_raw
+rosrun image_view image_view image:=/camera/rgb/image_raw theora
+rosrun image_view image_view image:=/camera/rgb/image_raw _image_transport:=compressed
+rosrun image_view image_view image:=/extract_image_channel_r/output _do_dynamic_scaling:=true
+
+
+ #########ORBSLAM#################
+  rosrun ORB_SLAM ORB_SLAM PATH_TO_VOCABULARY PATH_TO_SETTINGS_FILE
+
+  rosrun depthimage_to_laserscan depthimage_to_laserscan ima:=/camera/depth/image_raw _range_min:=0.001

@@ -1,0 +1,29 @@
+<launch>
+  <param name="/use_sim_time" value="true" />
+
+  <!-- Load the URDF/Xacro model of our robot -->
+  <arg name="urdf_file" default="$(find xacro)/xacro.py '$(find traxster_description)/urdf/traxster.urdf'" />
+   
+  <param name="robot_description" command="$(arg urdf_file)" />
+    
+<!-->
+  <node name="arbotix" pkg="arbotix_python" type="arbotix_driver" output="screen" clear_params="true">
+      <rosparam file="$(find traxster_bringup)/config/fake_traxster.yaml" command="load" />
+      <param name="sim" value="true"/>
+  </node>
+  -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
+      <param name="publish_frequency" type="double" value="20.0" />
+  </node>
+
+  <!-- Run the depthimage to LaserScan -->
+  <node name="depthimage_to_laserscan" pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" > 
+      <remap from="image" to="/camera/depth/image_raw"/>
+  </node>
+
+  <!-- Node listening to the scan data and invrting it -->
+  <node name="Inverted_Scanner" pkg="traxster_bringup" type="invert_scan.py" />
+
+  <node name="rviz" pkg="rviz" type="rviz" />
+  
+</launch>
