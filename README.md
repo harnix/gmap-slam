@@ -1,17 +1,20 @@
 # TRAXSTER using ROS (Robot Operating System) and V-REP (robot simulator)
 
-This is a project in partial fulfilment of the undergraduate study of systems engineering, univeersity of lagos. It is a simulator of the Traxster robot by RoboticsConnection to perform SLAM. I put it on here so it can be improved. https://www.youtube.com/watch?v=WXGIw6eK2No
+###Description
+This is a project in partial fulfilment of the undergraduate study of systems engineering, univeersity of lagos. It is a simulator of the Traxster robot by RoboticsConnection to perform SLAM. I put it on here so it can be improved. This simulator is for testing of algorithm before running it on the hardware. https://www.youtube.com/watch?v=WXGIw6eK2No
 
 <img src="picture/real_traxster.jpg"> 
 
 
 <img src="picture/world.png">
 
-* Build 2D grid map with laserscan data avia `rviz`
+
 * Control the mobile robot in the `vrep` simulation environment with keyboard
+* roslaunch ros nodes
+* Build 2D grid map with laserscan data avia `rviz`
 * Image Recognition and localization
 * Visual Servoing (follow the yellow ball)
-* roslaunch ros nodes
+
 
 <img src="picture/rqt_graph.jpg">
 
