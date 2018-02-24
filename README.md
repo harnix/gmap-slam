@@ -63,6 +63,9 @@ $ mv ~/V-REP_PRO_EDU_V3_4_0_Linux ~/V-REP
 Plugin ’RosInterface’: loading...
 Plugin ’RosInterface’: load succeeded.
 ```
+<img src="picture/ros_loaded.png">
+
+
 3. open `traxster_description/scenes/traxster_real.ttt` in vrep's scene and press the start bottom
 4. control the robot by keyboard
 ```
