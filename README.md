@@ -78,5 +78,5 @@ $ roslaunch traxster_2dnav traxster_slam.launch
 
 
 ### Credits
-* Chien-Sheng Jason Wu for using his ros-vrep readme to write the readme for this project
+* Chien-Sheng Jason Wu for using his ros-vrep project readme to write the readme for this project
 
