@@ -11,12 +11,17 @@ This is a project in partial fulfilment of the undergraduate study of systems en
 
 * Control the mobile robot in the `vrep` simulation environment with keyboard
 * roslaunch ros nodes
-* Build 2D grid map with laserscan data avia `rviz`
+
+<img src="picture/graph_ros.png">
+
+## TODOS
+
+* Build 2D grid map with laserscan data via `rviz`
 * Image Recognition and localization
 * Visual Servoing (follow the yellow ball)
 
 
-<img src="picture/rqt_graph.jpg">
+
 
 ## SETUP
 #### ROS install and catkin
