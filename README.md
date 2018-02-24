@@ -21,8 +21,6 @@ This is a project in partial fulfilment of the undergraduate study of systems en
 * Visual Servoing (follow the yellow ball)
 
 
-
-
 ## SETUP
 #### ROS install and catkin
 1. Install catkin: http://wiki.ros.org/catkin
@@ -40,9 +38,10 @@ $ source ~/.bashrc
 4. Install the needed ros packages
 ```
 #install hector slam
-$ sudo apt install ros kinetic hector slam
-#install key teleop
-$ sudo apt install ros kinetic key teleop
+$ sudo apt install ros-kinetic-gmapping-slam
+
+#install teleop key
+$ sudo apt-get install ros-kinetic-teleop-twist-keyboard
 ```
 #### Install V-REP
 1. Dowload V-REP: http://www.coppeliarobotics.com/downloads.html
@@ -52,18 +51,9 @@ $ tar -zvxf ~/V-REP_PRO_EDU_V3_4_0_Linux.tar.gz
 $ mkdir ~/V-REP
 $ mv ~/V-REP_PRO_EDU_V3_4_0_Linux ~/V-REP
 ```
-#### Load RosInterface and Some Packages
-* Copy everything in this repo **except** `README.md env.ttt hector.launch picture/ ` to `~/catkin_ws/src/`
-```
-$ cd ~/catkin_ws/
-$ catkin_make
-$ source ~/.bashrc
-```
-* Copy libv_repExtRosInterface.so
-```
-$ cd catkin_ws/devel/lib
-$ cp libv_repExtRosInterface.so  ~/V-REP
-```
+#### TO inteface ROS with V-REP
+* Follow this link http://analuciacruz.me/articles/RosInterface_kinetic/ coustesy of Ana Lucia Cruz Ruiz
+
 
 ## RUN
 1. open one terminal and run `$ roscore`
@@ -73,21 +63,20 @@ $ cp libv_repExtRosInterface.so  ~/V-REP
 Plugin ’RosInterface’: loading...
 Plugin ’RosInterface’: load succeeded.
 ```
-3. open `env.ttt` in vrep's scene and press the start bottom
+3. open `traxster_description/scenes/traxster_real.ttt` in vrep's scene and press the start bottom
 4. control the robot by keyboard
 ```
-$ rosrun key_teleop key_teleop.py
+$ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 ```
-5. launch the ros nodes for face detection/recognition and automatic ball tracking
+5. launch the ros nodes to visualize in rviz
 ```
-$ roslaunch hector.launch
+$ roslaunch traxster_2dnav traxster_slam.launch
 ```
 
 
-<img src="picture/run.jpg">
+<img src="picture/rviz_run.jpg">
 
 
 ### Credits
-* Chien-Sheng (Jason) Wu & Zifan Wang
-* This is the final project of the course `ELEC4010K: Machine Learning and Information Processing for Robotic Perception` by Prof. LIU Ming in Fall 2017 at HKUST
+* Chien-Sheng Jason Wu for using his ros-vrep readme to write the readme for this project
 
