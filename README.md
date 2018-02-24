@@ -74,7 +74,7 @@ $ roslaunch traxster_2dnav traxster_slam.launch
 ```
 
 
-<img src="picture/rviz_run.jpg">
+<img src="picture/rviz_run.png">
 
 
 ### Credits
