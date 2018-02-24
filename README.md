@@ -1,6 +1,6 @@
-# Robot Operating System (ROS) +robot simulator (V-REP)
+# TRAXSTER using ROS (Robot Operating System) and V-REP (robot simulator)
 
-<img src="picture/env.jpg">
+<img src="picture/world.jpg">
 
 * Build 2D grid map with laserscan data avia `rviz`
 * Control the mobile robot in the `vrep` simulation environment with keyboard
