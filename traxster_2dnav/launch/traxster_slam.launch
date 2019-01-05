@@ -9,7 +9,7 @@
    
   <param name="robot_description" command="$(arg urdf_file)" />
     
-<!-->
+  <!-->
   <node name="arbotix" pkg="arbotix_python" type="arbotix_driver" output="screen" clear_params="true">
       <rosparam file="$(find traxster_bringup)/config/fake_traxster.yaml" command="load" />
       <param name="sim" value="true"/>
@@ -37,7 +37,7 @@
     <param name="maxUrange" value="4.0"/>
     <param name="minimumScore" value="10000"/>
     <param name="linearUpdate" value="0.0001"/>
-    <param name="angularUpdate" value="0.1"/>
+    <param name="angularUpdate" value="0.0001"/>
     <param name="temporalUpdate" value="0.5"/>
     <param name="delta" value="0.01"/>
     <param name="lskip" value="0"/>

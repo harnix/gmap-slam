@@ -165,7 +165,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0 "/>
       <geometry>
-        <mesh filename="package://traxster/meshes/kinect.dae" scale="73 73 73"/>
+        <mesh filename="package://traxster_description/meshes/vggvct.dae" scale="73 73 73"/>
       </geometry>
     </visual>
     <collision>

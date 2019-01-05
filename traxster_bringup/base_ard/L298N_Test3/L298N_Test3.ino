@@ -3,18 +3,18 @@
 #include <Encoder.h>
 
 #define LMotPWMPin  45 
-#define RMotPWMPin  46
-#define LMotAPin 35
-#define LMotBPin 39
-#define RMotAPin 37
-#define RMotBPin 41
+#define RMotPWMPin  47
+#define LMotAPin 39
+#define LMotBPin 35
+#define RMotAPin 41
+#define RMotBPin 37
 int LMotor = 0;
 int RMotor = 1;
 
-#define LEncoderA 20
-#define LEncoderB 21
-#define REncoderA 2
-#define REncoderB 3
+#define LEncoderA 21
+#define LEncoderB 20
+#define REncoderA 3
+#define REncoderB 2
 
 //////////////////////////////////////////////////////////////////////////////////////
 
@@ -156,6 +156,7 @@ void MotorWrite(){
         DIR = CW;
         if((WCS[i]>0&&i==MotorNum[0])||(WCS[i]<0&&i==MotorNum[1])){DIR=CCW;}
 
+        double prevMSpeed = Mspeeds[i];
         //correct speed with encoder data
         double MSpeed = CorrectedSpeed(i, WCS[i]);
         
@@ -164,9 +165,10 @@ void MotorWrite(){
         //debug
         //MSpeed = abs(WCS[i]);
         //if(MSpeed>30) MSpeed = 0;
-        
-        motorGo(MotorNum[i], DIR, int(MSpeed * 3));
-                        
+
+
+      
+        motorGo(MotorNum[i], DIR, int(MSpeed));
                 
     }
 }
@@ -209,8 +211,8 @@ double CorrectedSpeed(int M, double CVel){
 
     double dif = EVel - CVel;
 
-    if(MWS[M]<60 && MWS[M]>=0){MWS[M]=MWS[M]-(dif*AccParam);}
-    if(MWS[M]>60){MWS[M]=59;}
+    if(MWS[M]<255 && MWS[M]>=0){MWS[M]=MWS[M]-(dif*AccParam);}
+    if(MWS[M]>255){MWS[M]=254;}
     if(MWS[M]<0){MWS[M]=0;}
     
     if(CVel == 0){MWS[M] = 0;}
