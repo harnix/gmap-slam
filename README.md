@@ -1,7 +1,7 @@
 # TRAXSTER using ROS (Robot Operating System) and V-REP (robot simulator)
 
 ### Description
-This is a project in partial fulfilment of the undergraduate study of systems engineering, univeersity of lagos. It is a simulator of the Traxster robot by RoboticsConnection to perform SLAM. I put it on here so it can be improved. This simulator is for testing of algorithm before running it on the hardware. https://www.youtube.com/watch?v=WXGIw6eK2No
+This is a project is an effort in exploring the use of gmapping for SLAM
 
 <img src="picture/real_traxster.jpg"> 
 
