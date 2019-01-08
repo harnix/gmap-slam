@@ -1,7 +1,7 @@
 # TRAXSTER using ROS (Robot Operating System) and V-REP (robot simulator)
 
 ### Description
-This is a project is an effort in exploring the use of gmapping for SLAM
+This is a project is an effort in exploring the use of gmapping for SLAM using a Traxster mobile robot and Kinect.
 
 <img src="picture/real_traxster.jpg"> 
 
